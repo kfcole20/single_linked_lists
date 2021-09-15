@@ -46,22 +46,39 @@ class SLL {
         {
             return false;
         }
-        var pointer=this.head
-        while(pointer !=null){
-            if(pointer.value==value)
+        var runner=this.head
+        while(runner !=null){
+            if(runner.value==value)
             {
                 return true;
             }
-            pointer=pointer.next
+            runner=runner.next
         }
         return false;
+    }
+
+    length(){
+        var count =0
+        var runner=this.head
+        while(runner != null){
+            count+=1;
+            runner= runner.next
+        }
+        return count;
+    }
+    display(){
+        var runner= this.head
+        while(runner != null){
+            console.log(`Current node value is ${runner.value}`)
+            runner=runner.next
+        }
     }
 
     
 }
 
 //addFront tests
-var myList= new SLL()
+let myList= new SLL()
 myList.addFront(1)
 myList.addFront(2).addFront(3).addFront(4)
 console.log(myList)
@@ -76,12 +93,21 @@ console.log(myList)
 
 
 //front tests
-var anotherList= new SLL()
+let anotherList= new SLL()
 console.log(anotherList.front())
 anotherList.addFront(24).addFront(12).addFront(54)
 console.log(anotherList.front())
 
-//contains test
+//contains tests
 console.log(anotherList.contains(54))
 console.log(anotherList.contains(5))
 console.log(anotherList.contains(12))
+
+//length tests
+console.log(myList.length())
+console.log(anotherList.length())
+
+//display tests
+let someList= new SLL()
+someList.addFront(23).addFront(85).addFront(1).addFront(32).addFront(837)
+someList.display()
