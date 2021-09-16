@@ -74,6 +74,35 @@ class SLL {
         }
     }
 
+    maxMinAvg(){
+        if(this.head==null)
+        {
+            return console.log('This list is empty')
+        }
+        var sum= 0; 
+        var count=0;
+
+        var max=this.head.value
+        var min= this.head.value
+        var runner = this.head
+        while(runner!=null){
+            
+            if(max< runner.value)
+            {
+                max=runner.value
+            }
+            if(min > runner.value){
+                min=runner.value
+            }
+            sum+=runner.value
+            count+=1
+            runner= runner.next
+        }
+        var avg=sum/count
+
+        return console.log(`Min = ${min}; Max = ${max}; Avg =${avg}`)
+    }
+
     
 }
 
@@ -111,3 +140,11 @@ console.log(anotherList.length())
 let someList= new SLL()
 someList.addFront(23).addFront(85).addFront(1).addFront(32).addFront(837)
 someList.display()
+
+//Max, Min, Average
+var ndList=new SLL()
+ndList.addFront(1).addFront(2).addFront(-3).addFront(4).addFront(5)
+
+someList.maxMinAvg()
+myList.maxMinAvg()
+ndList.maxMinAvg()
